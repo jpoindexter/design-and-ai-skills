@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design & AI Engineering Skills</title>
+<style>
+:root{--bg:#0b0f14;--panel:#11161d;--line:#1f2933;--line2:#2a3744;--ink:#c8d3de;--ink2:#8595a4;--ink3:#5d6b78;--acc:#7bb2a8;--acc2:#e0b341;--code:#0d1218}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% -10%,#132437 0,#0b0f14 38%,#08090d 100%);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem}
+a{color:var(--acc);text-decoration:none}
+.wrap{max-width:60rem;width:100%}
+h1{font:800 2.2rem/1.1 -apple-system,sans-serif;margin:0 0 .4rem;letter-spacing:-.5px}
+.sub{color:var(--ink2);max-width:42rem;margin:0 0 2.2rem}
+.sub b{color:var(--acc2)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;transition:.15s}
+.card:hover{border-color:var(--acc);transform:translateY(-2px);text-decoration:none}
+.card .ic{font-size:1.8rem}
+.card h2{font-size:1.25rem;margin:.5rem 0 .3rem;color:var(--ink)}
+.card .n{font:700 .7rem ui-monospace,monospace;color:var(--acc2);border:1px solid var(--line2);border-radius:5px;padding:.1rem .45rem;display:inline-block;margin-bottom:.5rem}
+.card p{color:var(--ink2);font-size:.9rem;margin:.3rem 0 0}
+.card .go{color:var(--acc);font-size:.82rem;margin-top:.9rem;font-weight:600}
+.foot{color:var(--ink3);font-size:.8rem;margin-top:2rem;border-top:1px solid var(--line);padding-top:1.2rem}
+.foot code{background:var(--code);border:1px solid var(--line);border-radius:4px;padding:.05rem .35rem;font:.85em ui-monospace,monospace;color:var(--acc2)}
+@media(max-width:680px){.cards{grid-template-columns:1fr}h1{font-size:1.8rem}}
+</style></head><body><div class="wrap">
+<h1>Design &amp; AI Engineering Skills</h1>
+<p class="sub"><b>40 reference-grade skills</b> — portable <code>SKILL.md</code> files for product
+design and production AI engineering. Install into Claude Code, Codex, or any agent that reads a
+skills directory. Click a library to browse.</p>
+<div class="cards">
+  <a class="card" href="design-system-skills/index.html">
+    <div class="ic">🎨</div><span class="n">27 SKILLS</span>
+    <h2>Design System Skills</h2>
+    <p>Atomic design, tokens, type, grid, color, motion, a11y &amp; inclusion, UX heuristics and the
+    cognitive laws — for web, app, desktop, any screen.</p>
+    <div class="go">Browse →</div>
+  </a>
+  <a class="card" href="ai-engineering-skills/index.html">
+    <div class="ic">🤖</div><span class="n">13 SKILLS</span>
+    <h2>AI Engineering Skills</h2>
+    <p>Harness &amp; context engineering, inference/caching/quantization, RAG, evals,
+    observability, safety — production LLM &amp; agent systems at scale.</p>
+    <div class="go">Browse →</div>
+  </a>
+</div>
+<p class="foot">Install one: <code>cp -R design-system-skills/typography-system ~/.claude/skills/</code>
+ · or a whole library: <code>cp -R ai-engineering-skills/*/ ~/.claude/skills/</code>. See
+ <code>README.md</code>. MIT.</p>
+</div></body></html>
