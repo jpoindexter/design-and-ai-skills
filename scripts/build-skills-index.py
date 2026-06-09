@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Generic skill-folder → self-contained index.html generator (file://-safe, no
+"""Generic skill-folder → self-contained HTML generator (file://-safe, no
 fetch). Renders every SKILL.md in a folder into one navigable page. Usage:
 
     python3 scripts/build-skills-index.py ai-engineering-skills
+
+Output: docs/ai-engineering-skills.html
 
 A per-folder CONFIG below sets the title, subtitle, and sidebar grouping.
 """
@@ -143,7 +145,8 @@ def main():
 <p>{len(ordered)} reference-grade, self-contained skills (the same <code>SKILL.md</code> files installable into Claude Code / Argo). Click a card to expand.</p>
 <div class="bar"><button id="xall">Expand all</button><button id="call">Collapse all</button></div></div>
 {''.join(sections)}</main></div><script>{JS}</script></body></html>"""
-    out = base / "index.html"
+    out = ROOT / "docs" / f"{folder}.html"
+    out.parent.mkdir(exist_ok=True)
     out.write_text(page)
     print(f"wrote {out} · {len(ordered)} skills")
 

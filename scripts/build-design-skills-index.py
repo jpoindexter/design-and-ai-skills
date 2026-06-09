@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Generate a self-contained index.html for the design-system-skills library.
+"""Generate a self-contained HTML viewer for the design-system-skills library.
 Renders every SKILL.md (mistune, with tables) into one navigable, file://-safe
 page — no runtime fetch. Re-run after adding/editing a skill:
 
     python3 scripts/build-design-skills-index.py
+
+Output: docs/design-system-skills.html
 """
 import re, html, pathlib
 import mistune
@@ -157,7 +159,8 @@ def main():
 {''.join(sections)}
 </main></div>
 <script>{JS}</script></body></html>"""
-    out = SKILLS / "index.html"
+    out = ROOT / "docs" / "design-system-skills.html"
+    out.parent.mkdir(exist_ok=True)
     out.write_text(page)
     print(f"wrote {out} · {len(ordered)} skills")
 

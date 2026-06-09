@@ -201,9 +201,9 @@ Each library ships a self-contained `index.html` viewer — no server, no build,
 
 | Viewer | Path |
 |---|---|
-| Both libraries | `index.html` |
-| Design system skills | `design-system-skills/index.html` |
-| AI engineering skills | `ai-engineering-skills/index.html` |
+| Both libraries | `docs/index.html` |
+| Design system skills | `docs/design-system-skills.html` |
+| AI engineering skills | `docs/ai-engineering-skills.html` |
 
 Open any of them directly in a browser. Grouped sidebar, filter box, collapsible skill cards.
 
@@ -216,10 +216,10 @@ After adding or editing a skill, rebuild the corresponding `index.html`. Require
 ```bash
 pip install mistune
 
-# Rebuild AI engineering viewer
+# Rebuild AI engineering viewer → docs/ai-engineering-skills.html
 python3 scripts/build-skills-index.py ai-engineering-skills
 
-# Rebuild design system viewer
+# Rebuild design system viewer → docs/design-system-skills.html
 python3 scripts/build-design-skills-index.py
 ```
 
