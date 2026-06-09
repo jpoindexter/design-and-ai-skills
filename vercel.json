@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/docs/index.html" },
+    { "source": "/design", "destination": "/docs/design-system-skills.html" },
+    { "source": "/ai", "destination": "/docs/ai-engineering-skills.html" }
+  ]
+}
