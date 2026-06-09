@@ -164,29 +164,48 @@ For engineers shipping LLM and agent systems in production. Grounded in specific
 
 ## Install
 
-### Claude Code
+### Fresh clone (recommended)
 
 ```bash
-# One skill
-cp -R design-system-skills/usability-heuristics ~/.claude/skills/
-
-# Full design library
-cp -R design-system-skills/*/ ~/.claude/skills/
-
-# Full AI engineering library
-cp -R ai-engineering-skills/*/ ~/.claude/skills/
-
-# Both libraries
-cp -R design-system-skills/*/ ai-engineering-skills/*/ ~/.claude/skills/
+git clone https://github.com/jpoindexter/design-and-ai-skills
+cd design-and-ai-skills
+./bootstrap.sh
 ```
 
-Skills are loaded by Claude Code when the `name:` in the frontmatter matches a trigger in your prompt or system instructions. You can also invoke them explicitly with `/skill-name`.
+`bootstrap.sh` does two things in one step:
+1. Installs all 40 skills to `~/.claude/skills/`
+2. Wires a `post-merge` git hook so future `git pull`s auto-reinstall
 
-### Symlink (stays in sync with git pulls)
+Reload Claude Code after running. You're done — no manual steps needed after this.
+
+### Existing clone / manual install
 
 ```bash
-# Link a whole library — no copy needed, updates with git pull
-ln -s "$(pwd)/design-system-skills/usability-heuristics" ~/.claude/skills/usability-heuristics
+./install.sh
+```
+
+Finds every `SKILL.md` under `design-system-skills/` and `ai-engineering-skills/` and copies each to `~/.claude/skills/<slug>/`. Use this if you cloned before `bootstrap.sh` existed, or want to reinstall without pulling.
+
+Preview what will be installed first:
+
+```bash
+./install.sh --dry-run
+```
+
+### Keeping skills up to date
+
+Once `bootstrap.sh` has been run once, `git pull` handles everything:
+
+```bash
+git pull  # post-merge hook fires automatically → all 40 skills reinstalled
+```
+
+No manual `install.sh` needed after a pull.
+
+### Install a single skill
+
+```bash
+cp -R design-system-skills/usability-heuristics ~/.claude/skills/
 ```
 
 ### Other agents
