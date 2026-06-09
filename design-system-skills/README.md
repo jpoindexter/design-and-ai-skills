@@ -1,44 +1,25 @@
-# Argo Design System Skills
+# Design System Skills
 
-A complete, modern design knowledge base — **17 reference-grade skills** spanning atomic
-design and standard design-system practice through to UX heuristics and the cognitive laws
-behind them. Built for **any screen**: web, iOS/Android app, macOS/Windows desktop, mobile,
-tablet, TV, watch, foldable.
+**27 reference-grade skills** for product design — foundations through UX principles, for any screen (web · iOS/Android · desktop · TV · watch · foldable).
 
-Each skill is a self-contained `SKILL.md` (Claude Code / Argo skill format — frontmatter +
-deep body), depth over fluff: real numbers, copy-pasteable CSS/tokens/HTML, comparison
-tables, do/don't, common mistakes, cross-device notes. Modern (2024–2026): OKLCH, container
-queries, fluid `clamp()` type, variable fonts, W3C DTCG tokens, Material 3, Apple HIG,
-WCAG 2.2, view transitions.
+Install instructions, the SKILL.md format spec, and full skill descriptions are in the [root README](../README.md).
 
-## View it
+---
 
-Open **`index.html`** in any browser (self-contained, works from `file://` — no server
-needed). Sidebar grouped by Foundations / Structure / Interaction & device / UX principles;
-filter box; collapsible cards.
+## Skills
 
-## The skills
+**Foundations** — [`design-tokens`](design-tokens/SKILL.md) · [`typography-system`](typography-system/SKILL.md) · [`color-and-elevation`](color-and-elevation/SKILL.md) · [`grid-and-spacing`](grid-and-spacing/SKILL.md) · [`iconography-and-imagery`](iconography-and-imagery/SKILL.md)
 
-**Foundations** — `design-tokens` · `typography-system` · `color-and-elevation` ·
-`grid-and-spacing` · `iconography-and-imagery`
-**Structure** — `atomic-design` · `layout-and-composition` · `components-and-states` ·
-`design-system-governance`
-**Interaction & device** — `interaction-and-motion` · `forms-and-data-entry` ·
-`responsive-and-multi-device` · `platform-conventions`
-**UX principles** — `usability-heuristics` (Nielsen, Norman, Shneiderman, Rams) ·
-`laws-of-ux-and-psychology` (Fitts, Hick, Miller, Jakob, Doherty, Peak-End…) ·
-`ux-writing-and-content` · `accessibility-and-inclusive-design`
+**Structure** — [`atomic-design`](atomic-design/SKILL.md) · [`layout-and-composition`](layout-and-composition/SKILL.md) · [`components-and-states`](components-and-states/SKILL.md) · [`design-system-governance`](design-system-governance/SKILL.md) · [`design-system-frameworks`](design-system-frameworks/SKILL.md)
 
-## Install as skills
+**Interaction & device** — [`interaction-and-motion`](interaction-and-motion/SKILL.md) · [`forms-and-data-entry`](forms-and-data-entry/SKILL.md) · [`responsive-and-multi-device`](responsive-and-multi-device/SKILL.md) · [`platform-conventions`](platform-conventions/SKILL.md)
 
-These are standard `SKILL.md` files. To use them in Claude Code, copy/symlink a skill dir
-into `~/.claude/skills/`. To bundle into Argo, drop a dir into `argo-ts/skills-library/`
-(auto-installed next session). Each `name:` matches its folder.
+**UX & inclusion** — [`usability-heuristics`](usability-heuristics/SKILL.md) · [`laws-of-ux-and-psychology`](laws-of-ux-and-psychology/SKILL.md) · [`ux-writing-and-content`](ux-writing-and-content/SKILL.md) · [`accessibility-and-inclusive-design`](accessibility-and-inclusive-design/SKILL.md) · [`inclusive-design`](inclusive-design/SKILL.md) · [`information-architecture-and-navigation`](information-architecture-and-navigation/SKILL.md) · [`data-visualization`](data-visualization/SKILL.md) · [`ethical-design-and-dark-patterns`](ethical-design-and-dark-patterns/SKILL.md) · [`performance-and-perceived-speed`](performance-and-perceived-speed/SKILL.md) · [`onboarding-and-empty-states`](onboarding-and-empty-states/SKILL.md) · [`multimodal-voice-and-haptics`](multimodal-voice-and-haptics/SKILL.md) · [`internationalization-and-localization`](internationalization-and-localization/SKILL.md) · [`brand-identity-and-design-principles`](brand-identity-and-design-principles/SKILL.md)
 
-## Regenerate the viewer
+---
 
-After adding or editing a skill, rebuild `index.html`:
+## Quick install (Claude Code)
 
 ```bash
-python3 scripts/build-design-skills-index.py   # needs `mistune`
+cp -R design-system-skills/*/ ~/.claude/skills/
 ```

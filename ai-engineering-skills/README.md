@@ -1,43 +1,29 @@
 # AI Engineering Skills
 
-**13 reference-grade skills** for building production LLM & agent systems — harness and
-context engineering through inference serving, caching, RAG, evals, observability, and
-safety. For AI engineers shipping at scale, not prompt-tip lists.
+**13 reference-grade skills** for production LLM and agent systems — context engineering through inference serving, caching, RAG, evals, observability, and safety.
 
-Each skill is a self-contained `SKILL.md` (Claude Code / Argo format), depth over fluff:
-real numbers, formulas, pseudocode, comparison tables, do/don't, named production failure
-modes, and attributions to the actual systems and papers (vLLM/PagedAttention,
-FlashAttention, AWQ/GPTQ/SmoothQuant, RAGAS, OWASP LLM Top 10, OpenTelemetry GenAI).
+Grounded in specific systems and papers: vLLM/PagedAttention, FlashAttention, AWQ/GPTQ/SmoothQuant, RAGAS, OWASP LLM Top 10, OpenTelemetry GenAI.
 
-## View it
+Install instructions, the SKILL.md format spec, and full skill descriptions are in the [root README](../README.md).
 
-Open **`index.html`** in any browser (self-contained, `file://`-safe). Grouped sidebar,
-filter, collapsible cards.
+---
 
-## The skills
+## Skills
 
-**Context & harness** — `harness-and-context-engineering` · `adaptation-strategies`
-(fine-tune vs ICL vs RAG vs distillation)
-**Inference & serving** — `inference-performance` (prefill/decode, batching, PagedAttention) ·
-`inference-caching-and-kv` (prompt vs semantic caching, KV management) ·
-`quantization-and-model-compression` (INT8/4/FP8, AWQ/GPTQ, spec-decoding, distillation)
-**Reliability & agents** — `structured-output-and-tool-calling` (schema validation, repair
-loops, idempotency) · `agent-reliability-and-guardrails` (budgets, termination, runaway
-prevention) · `model-routing-and-fallback` (cascade, graceful fallback, degraded mode)
-**Retrieval & evals** — `rag-architecture` (chunking, hybrid search, reranking, freshness) ·
-`llm-evals-and-retrieval-quality` (golden sets, regression, LLM-as-judge, grounding/citation)
-**Ops, cost & safety** — `llm-observability-and-cost` (traces/spans, cost attribution per
-feature/tenant/user) · `llm-safety-and-multitenancy` (prompt injection, leakage, isolation) ·
-`production-failure-modes-and-tradeoffs` (the failure taxonomy + latency/quality/cost/reliability map)
+**Context & harness** — [`harness-and-context-engineering`](harness-and-context-engineering/SKILL.md) · [`adaptation-strategies`](adaptation-strategies/SKILL.md)
 
-## Install as skills
+**Inference & serving** — [`inference-performance`](inference-performance/SKILL.md) · [`inference-caching-and-kv`](inference-caching-and-kv/SKILL.md) · [`quantization-and-model-compression`](quantization-and-model-compression/SKILL.md)
 
-Standard `SKILL.md` files. Claude Code: copy a `<slug>/` into `~/.claude/skills/`. Argo:
-auto-installed via `librarySources()` (this folder is a bundled source). Each `name:`
-matches its folder.
+**Reliability & agents** — [`structured-output-and-tool-calling`](structured-output-and-tool-calling/SKILL.md) · [`agent-reliability-and-guardrails`](agent-reliability-and-guardrails/SKILL.md) · [`model-routing-and-fallback`](model-routing-and-fallback/SKILL.md)
 
-## Regenerate the viewer
+**Retrieval & evals** — [`rag-architecture`](rag-architecture/SKILL.md) · [`llm-evals-and-retrieval-quality`](llm-evals-and-retrieval-quality/SKILL.md)
+
+**Ops, cost & safety** — [`llm-observability-and-cost`](llm-observability-and-cost/SKILL.md) · [`llm-safety-and-multitenancy`](llm-safety-and-multitenancy/SKILL.md) · [`production-failure-modes-and-tradeoffs`](production-failure-modes-and-tradeoffs/SKILL.md)
+
+---
+
+## Quick install (Claude Code)
 
 ```bash
-python3 scripts/build-skills-index.py ai-engineering-skills   # needs `mistune`
+cp -R ai-engineering-skills/*/ ~/.claude/skills/
 ```
