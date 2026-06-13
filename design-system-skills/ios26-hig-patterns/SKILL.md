@@ -9,6 +9,8 @@ tags: [ios, iphone, hig, apple, swiftui, liquid-glass, ios26]
 
 The single most common iOS-26 mistake: forcing system chrome opaque to "match the brand." That fights the platform, breaks content-scrolls-under behavior, and reserves dead insets (the classic "white bar above the tab bar"). Default to letting the system render its chrome; theme only `tint` and your own surfaces.
 
+> **This is the field-manual overview.** For depth, use the specialized suite, each grounded in Apple HIG/WWDC25 sources: `ios-liquid-glass-swiftui` (material + verified API table), `ios-typography`, `ios-layout-and-grid`, `ios-color-and-materials`, `ios-sf-symbols-and-icons`, `ios-components`, `ios-flows-and-patterns`.
+
 ---
 
 ## 1. The floating tab bar (the #1 iOS-26 gotcha)
@@ -31,8 +33,9 @@ On iOS 26 a `TabView` renders as a **floating, translucent pill** inset from the
 
 - `NavigationStack` (not the deprecated `NavigationView`). Large title by default; it collapses to inline on scroll — this is good, keep it.
 - Use inline titles (`.navigationBarTitleDisplayMode(.inline)`) on dense utility screens where a large title wastes the first 60pt.
-- Toolbar items go in `.toolbar { ToolbarItem(placement: .topBarTrailing) { … } }`. On iOS 26 toolbars are also Liquid Glass and float — don't background them opaque either.
+- Toolbar items go in `.toolbar { ToolbarItem(placement: .topBarTrailing) { … } }`. On iOS 26 toolbars are also Liquid Glass and float — don't background them opaque either. Standard items get corner radii concentric with the bar; use `.prominent` for the one primary action (trailing).
 - Back navigation is the system swipe + chevron; never build a custom back button that breaks the edge-swipe.
+- **Scroll edge effect** (iOS 26) is how floating chrome stays legible over scrolling content — `.scrollEdgeEffectStyle(.hard, for: .top)` on dense top bars; it's functional, not decorative, one per view. Don't replace it with a hard opaque bar background.
 
 ## 3. Sheets & presentation detents
 
@@ -57,7 +60,7 @@ Modeless, partial sheets are the iOS-native way to add detail without a full pus
 
 ## 6. Touch targets & layout safety
 
-- **44×44 pt minimum** hit target for every interactive element (Fitts/HIG). A 20pt glyph still needs a 44pt tappable frame — pad it.
+- **Design to 44×44 pt** for every interactive element (Fitts/HIG). A 20pt glyph still needs a 44pt tappable frame — pad it. Apple's Accessibility page now also lists a **28×28 pt absolute floor** — treat 44 as the target, 28 as a never-go-below, not a goal.
 - Respect safe areas: never put controls under the Dynamic Island, home indicator, or behind the floating tab bar. Use `.safeAreaInset(edge:)` to add a pinned footer that the system insets correctly, instead of manual bottom padding.
 - `.safeAreaPadding` over raw `.padding` when the intent is "clear the system chrome."
 - Honor `@Environment(\.accessibilityReduceMotion)` — drop parallax/large transitions when set.
