@@ -1,8 +1,8 @@
 # Design & AI Engineering Skills
 
-**40 reference-grade skills** for product design and production AI engineering — self-contained `SKILL.md` files that load into Claude Code, Codex, or any agent that reads a skills directory.
+**42 reference-grade skills** for product design and production AI engineering — self-contained `SKILL.md` files that load into Claude Code, Codex, or any agent that reads a skills directory.
 
-Two libraries: **27 design-system skills** covering the full UX/design canon, and **13 AI engineering skills** covering production LLM and agent systems.
+Two libraries: **29 design-system skills** (27 reference + 2 routing dispatchers) covering the full UX/design canon, and **13 AI engineering skills** covering production LLM and agent systems.
 
 ---
 
@@ -56,7 +56,7 @@ design-and-ai-skills/
 ├── design-system-skills/
 │   ├── README.md                    ← skill list for this library
 │   ├── index.html                   ← standalone viewer
-│   └── <slug>/SKILL.md              ← one folder per skill (27 total)
+│   └── <slug>/SKILL.md              ← one folder per skill (29 total)
 └── ai-engineering-skills/
     ├── README.md                    ← skill list for this library
     ├── index.html                   ← standalone viewer
@@ -65,9 +65,18 @@ design-and-ai-skills/
 
 ---
 
-## Design System Skills — 27 skills
+## Design System Skills — 29 skills
 
 For any screen: web, iOS/Android, macOS/Windows, tablet, TV, watch, foldable. Current to 2025–2026 standards (WCAG 2.2, Material 3, Apple HIG, W3C DTCG, OKLCH, container queries, view transitions).
+
+### Dispatchers
+
+Route a task to 2–4 skills from the library instead of loading everything — routing tables built from observed usage patterns, capped depth over shallow coverage.
+
+| Skill | What it covers |
+|---|---|
+| [`design`](design-system-skills/design/SKILL.md) | Routes any web/cross-platform UI task (new screen, layout pass, audit, data viz, tokens, copy) to 2-4 of this library's design-system skills. `/design` |
+| [`ios`](design-system-skills/ios/SKILL.md) | Routes any native iOS/SwiftUI task to 2-4 of the `ios-*` HIG skills in this library. `/ios` |
 
 ### Foundations
 
