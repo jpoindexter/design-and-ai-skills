@@ -1,6 +1,6 @@
 ---
 name: design
-description: "Use when the user invokes /design, or asks to design/build/audit/polish any web or cross-platform UI — screen, component, layout, table, chart, form, color system — and it's unclear which design reference skills apply. Dispatcher that routes to the right 2-4 companion skills (components-and-states, layout-and-composition, color-and-elevation, data-visualization, ...) instead of loading the whole family. Native iOS work routes to /ios instead."
+description: "Use when the user invokes /design, or asks to design/build/audit/polish a web or cross-platform UI or create a design case study — screen, component, layout, table, chart, form, color system, portfolio narrative — and it's unclear which design reference skills apply. Dispatcher that routes to the right companion skills, delegates case studies to /case-study, and routes native iOS work to /ios."
 ---
 
 # Design — Cross-Platform UI Skill Dispatcher
@@ -21,6 +21,7 @@ The cross-cutting design family is 16+ reference skills. Loading them all drowns
 | Dense single-viewport UI ("fit on one screen", admin tool, inspector) | dense-no-scroll-layout, layout-and-composition, grid-and-spacing |
 | Tufte-grade information display (data density, small multiples) | tufte, data-visualization |
 | Design audit / QA before ship | accessibility-and-inclusive-design, components-and-states, color-and-elevation (+ data-visualization if charts/tables present) |
+| Design case study / portfolio narrative | case-study dispatcher; it routes evidence, story, decisions, writing, and AI-agent supervision |
 | Polish / "make it feel better" | make-interfaces-feel-better, interaction-and-motion, app-motion-and-animation |
 | Motion / animation decisions | app-motion-and-animation, interaction-and-motion |
 | Design system / tokens | design-tokens, grid-and-spacing, color-and-elevation |
@@ -37,6 +38,7 @@ Ambiguous target → the default row. Marketing/landing pages → hallmark owns 
 ## Rules
 
 - **Load at most 4 per pass.** Task matches several rows → primary row, plus the single most load-bearing skill from the secondary row.
+- **Case studies route through `/case-study`.** For AI agents, that dispatcher must include `ai-agent-case-study`; do not reduce the work to a linear screen flow.
 - **Audits always include accessibility-and-inclusive-design**, whatever the row says.
 - **Co-fire, don't sequence**: evidence shows these skills are applied together (component anatomy while laying out, color while spacing) — load the cluster up front, not one at a time as gaps appear.
 - **The dec-* canon is principles, this family is specs.** For named-principle reasoning (Nielsen, Norman, cognitive load) route via /dec; come here for concrete values (tokens, ramps, grids, state matrices).
